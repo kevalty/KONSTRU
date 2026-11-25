@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { obtenerCotizacionPorToken, listarCotizacionesDeSolicitud } from '@/server/db/repositorios'
 import { notFound } from 'next/navigation'
 import { TarjetaCotizacion } from '@/components/cotizacion/TarjetaCotizacion'

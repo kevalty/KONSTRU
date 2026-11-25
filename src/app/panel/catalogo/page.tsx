@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { listarTodosProductos } from '@/server/db/repositorios'
 
 const COLORES_GAMA = {

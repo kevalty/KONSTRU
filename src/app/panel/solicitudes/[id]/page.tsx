@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { obtenerSolicitud, listarCotizacionesDeSolicitud, listarProveedores } from '@/server/db/repositorios'
 import { notFound } from 'next/navigation'
 import { AccionesSolicitud } from '@/components/panel/AccionesSolicitud'

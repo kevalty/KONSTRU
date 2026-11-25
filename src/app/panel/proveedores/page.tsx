@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { listarProveedores } from '@/server/db/repositorios'
 
 export default async function PaginaProveedores() {

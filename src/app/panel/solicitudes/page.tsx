@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { listarSolicitudes } from '@/server/db/repositorios'
 import Link from 'next/link'
 import { formatearFechaEC } from '@/lib/zona-horaria'

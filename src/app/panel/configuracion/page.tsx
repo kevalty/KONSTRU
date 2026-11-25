@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { crearClienteAdmin } from '@/server/db/client'
 
 async function obtenerConfiguracion(): Promise<Array<{ clave: string; valor: string; updated_at: string }>> {

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { crearClienteAdmin } from '@/server/db/client'
 import Link from 'next/link'
 import { formatearFechaEC } from '@/lib/zona-horaria'

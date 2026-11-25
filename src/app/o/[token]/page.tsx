@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { obtenerPedidoPorToken, listarItemsPedido } from '@/server/db/repositorios'
 import { notFound } from 'next/navigation'
 import { VistaOrden } from '@/components/orden/VistaOrden'
