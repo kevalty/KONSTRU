@@ -29,7 +29,8 @@ export function ChatWidget() {
   async function enviar(texto: string) {
     if (!texto.trim() || cargando) return
 
-    const msgUsuario: Mensaje = { id: crypto.randomUUID(), rol: 'usuario', contenido: texto }
+    const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36)
+    const msgUsuario: Mensaje = { id: uid(), rol: 'usuario', contenido: texto }
     setMensajes(prev => [...prev, msgUsuario])
     setCargando(true)
 
@@ -49,11 +50,11 @@ export function ChatWidget() {
       const data = await res.json() as { mensaje: string; estado: Record<string, unknown>; cotizacionLista?: boolean }
 
       setEstadoChat(data.estado)
-      setMensajes(prev => [...prev, { id: crypto.randomUUID(), rol: 'asistente', contenido: data.mensaje }])
+      setMensajes(prev => [...prev, { id: uid(), rol: 'asistente', contenido: data.mensaje }])
       if (data.cotizacionLista) setCotizacionLista(true)
     } catch {
       setMensajes(prev => [...prev, {
-        id: crypto.randomUUID(),
+        id: uid(),
         rol: 'asistente',
         contenido: 'Ocurrió un error. Por favor intenta de nuevo.',
       }])
