@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk'
+import OpenAI from 'openai'
 import { config } from '@/lib/config'
 import { INSTRUCCION_SISTEMA } from './instruccion'
 import { HERRAMIENTAS } from './herramientas'
@@ -23,14 +23,22 @@ export interface RespuestaChat {
   solicitudConfirmada: boolean
 }
 
-const cliente = new Anthropic({ apiKey: config.anthropicApiKey })
+const cliente = new OpenAI({
+  apiKey: config.openrouterApiKey,
+  baseURL: 'https://openrouter.ai/api/v1',
+  defaultHeaders: {
+    'HTTP-Referer': config.appUrl,
+    'X-Title': 'Cotizador Ecuador',
+  },
+})
 
 export async function procesarMensaje(
   historial: MensajeChat[],
   nuevoMensaje: string,
   estado: EstadoConversacion,
 ): Promise<RespuestaChat> {
-  const mensajes: Anthropic.MessageParam[] = [
+  const mensajes: OpenAI.ChatCompletionMessageParam[] = [
+    { role: 'system', content: INSTRUCCION_SISTEMA },
     ...historial.map(m => ({
       role: m.rol === 'usuario' ? ('user' as const) : ('assistant' as const),
       content: m.contenido,
@@ -40,41 +48,44 @@ export async function procesarMensaje(
 
   const estadoActualizado = { ...estado }
   let solicitudConfirmada = false
-
-  // Agentic loop — handle tool calls
   let respuestaFinal = ''
   let iteraciones = 0
   const MAX_ITERACIONES = 5
 
   while (iteraciones < MAX_ITERACIONES) {
     iteraciones++
-    const respuesta = await cliente.messages.create({
+
+    const respuesta = await cliente.chat.completions.create({
       model: config.chatModel,
       max_tokens: 1024,
-      system: INSTRUCCION_SISTEMA,
       tools: HERRAMIENTAS,
+      tool_choice: 'auto',
       messages: mensajes,
     })
 
-    if (respuesta.stop_reason === 'end_turn') {
-      respuestaFinal = respuesta.content
-        .filter(b => b.type === 'text')
-        .map(b => (b as Anthropic.TextBlock).text)
-        .join('\n')
+    const choice = respuesta.choices[0]
+    if (!choice) break
+
+    if (choice.finish_reason === 'stop' || !choice.message.tool_calls?.length) {
+      respuestaFinal = choice.message.content ?? ''
       break
     }
 
-    if (respuesta.stop_reason === 'tool_use') {
-      // Process tool calls
-      const toolUses = respuesta.content.filter(b => b.type === 'tool_use') as Anthropic.ToolUseBlock[]
-      const toolResults: Anthropic.ToolResultBlockParam[] = []
+    if (choice.finish_reason === 'tool_calls' || choice.message.tool_calls?.length) {
+      // Add assistant message with tool_calls to history
+      mensajes.push(choice.message)
 
-      for (const tool of toolUses) {
-        const input = tool.input as Record<string, unknown>
+      const toolResults: OpenAI.ChatCompletionToolMessageParam[] = []
+
+      for (const toolCall of choice.message.tool_calls ?? []) {
+        if (toolCall.type !== 'function') continue
+        const nombre = toolCall.function.name
+        let input: Record<string, unknown> = {}
+        try { input = JSON.parse(toolCall.function.arguments) as Record<string, unknown> } catch { /* empty args */ }
+
         let resultado = 'OK'
-
         try {
-          switch (tool.name) {
+          switch (nombre) {
             case 'registrar_trabajo':
               estadoActualizado.tipoTrabajo = input.tipo as string
               break
@@ -110,12 +121,10 @@ export async function procesarMensaje(
           resultado = `Error: ${err instanceof Error ? err.message : 'Error desconocido'}`
         }
 
-        toolResults.push({ type: 'tool_result', tool_use_id: tool.id, content: resultado })
+        toolResults.push({ role: 'tool', tool_call_id: toolCall.id, content: resultado })
       }
 
-      // Add assistant response + tool results to messages and continue
-      mensajes.push({ role: 'assistant', content: respuesta.content })
-      mensajes.push({ role: 'user', content: toolResults })
+      mensajes.push(...toolResults)
       continue
     }
 
