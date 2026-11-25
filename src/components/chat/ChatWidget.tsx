@@ -17,7 +17,8 @@ const BIENVENIDA: Mensaje = {
 export function ChatWidget() {
   const [mensajes, setMensajes] = useState<Mensaje[]>([BIENVENIDA])
   const [cargando, setCargando] = useState(false)
-  const [sessionId] = useState(() => Math.random().toString(36).slice(2) + Date.now().toString(36))
+  const [sessionId, setSessionId] = useState('')
+  useEffect(() => { setSessionId(Math.random().toString(36).slice(2) + Date.now().toString(36)) }, [])
   const [estadoChat, setEstadoChat] = useState<Record<string, unknown>>({ medidas: {}, confirmado: false })
   const [cotizacionLista, setCotizacionLista] = useState(false)
   const finRef = useRef<HTMLDivElement>(null)
