@@ -1,0 +1,40 @@
+{
+  "id": "techo-losa-v1",
+  "nombre": "Acabado de Losa de Techo",
+  "version": 1,
+  "tipo_trabajo": "techo",
+  "items": [
+    {
+      "producto_categoria": "pintura_techo",
+      "formula": "area / 12",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1 galon cubre ~12m2 con 2 manos; usar pintura blanca opaca para techos; premium=pintura anti-humedad"
+    },
+    {
+      "producto_categoria": "sellador_techo",
+      "formula": "area / 20",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "sellador fijador antes de pintura; critico en losa nueva con concreto poroso"
+    },
+    {
+      "producto_categoria": "empaste_techo",
+      "formula": "area / 25",
+      "unidad": "bolsa",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "bolsa 20kg masilla para techos cubre ~25m2; para acabado fino sin imperfecciones visibles"
+    },
+    {
+      "producto_categoria": "rodillo_techo",
+      "formula": "1",
+      "unidad": "juego",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "juego incluye rodillo de pelo largo 23cm para techo + extension + bandeja"
+    }
+  ]
+}

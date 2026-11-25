@@ -1,0 +1,40 @@
+{
+  "id": "impermeabilizacion-cubierta-v1",
+  "nombre": "Impermeabilizacion de Cubierta y Terraza",
+  "version": 1,
+  "tipo_trabajo": "impermeabilizacion",
+  "items": [
+    {
+      "producto_categoria": "impermeabilizante_cubierta",
+      "formula": "area * 1.1",
+      "unidad": "galon",
+      "desperdicio": 0.1,
+      "gama": ["economica", "media", "premium"],
+      "notas": "economica=elastomerico acrilico 2 manos, media=poliuretano monocomponente, premium=cristalino cementoso (Penetron o similar)"
+    },
+    {
+      "producto_categoria": "tela_refuerzo",
+      "formula": "area * 1.08",
+      "unidad": "m2",
+      "desperdicio": 0.08,
+      "gama": ["media", "premium"],
+      "notas": "geotextil o tela de poliester 100g/m2 embebida entre capas de impermeabilizante; refuerza fisuras"
+    },
+    {
+      "producto_categoria": "sellador_grietas",
+      "formula": "area / 50",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1 tubo poliuretano o poliestireno por cada 50m2 para sellar grietas y juntas antes de impermeabilizar"
+    },
+    {
+      "producto_categoria": "pintura_termica",
+      "formula": "area / 10",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["premium"],
+      "notas": "pintura reflectiva termica blanca reduce temperatura interior hasta 8C; solo gama premium sobre impermeabilizante curado"
+    }
+  ]
+}

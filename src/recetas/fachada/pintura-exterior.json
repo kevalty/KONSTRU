@@ -1,0 +1,40 @@
+{
+  "id": "fachada-pintura-exterior-v1",
+  "nombre": "Pintura Exterior de Fachada",
+  "version": 1,
+  "tipo_trabajo": "fachada",
+  "items": [
+    {
+      "producto_categoria": "pintura_exterior",
+      "formula": "area / 10",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1 galon cubre ~10m2 con 2-3 manos; mayor consumo que interior por porosidad; economica=latex exterior, premium=pintura elastomerica"
+    },
+    {
+      "producto_categoria": "sellador_exterior",
+      "formula": "area / 18",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "sellador penetrante exterior; 1 galon cubre ~18m2; critico en fachadas con eflorescencias"
+    },
+    {
+      "producto_categoria": "masilla_exterior",
+      "formula": "area / 20",
+      "unidad": "bolsa",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "bolsa 20kg masilla exterior cubre ~20m2; usar masilla elastica resistente a lluvia y UV"
+    },
+    {
+      "producto_categoria": "malla_fibra",
+      "formula": "area * 1.05",
+      "unidad": "m2",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "malla de fibra de vidrio 160g/m2 embebida en masilla; previene fisuras por movimiento termico"
+    }
+  ]
+}

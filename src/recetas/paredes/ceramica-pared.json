@@ -1,0 +1,40 @@
+{
+  "id": "paredes-ceramica-v1",
+  "nombre": "Ceramica de Pared",
+  "version": 1,
+  "tipo_trabajo": "paredes",
+  "items": [
+    {
+      "producto_categoria": "ceramica_pared",
+      "formula": "area * 1.12",
+      "unidad": "m2",
+      "desperdicio": 0.12,
+      "gama": ["economica", "media", "premium"],
+      "notas": "12% desperdicio en paredes por cortes en esquinas y vanos; media=ceramica lisa, premium=porcelanato texturizado"
+    },
+    {
+      "producto_categoria": "pegante_ceramica",
+      "formula": "area / 4",
+      "unidad": "bolsa",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "bolsa 20kg rinde ~4m2 en pared por mayor consumo en superficie vertical"
+    },
+    {
+      "producto_categoria": "fragua",
+      "formula": "area / 15",
+      "unidad": "kg",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1kg fragua cubre ~15m2 en pared con junta de 2-3mm"
+    },
+    {
+      "producto_categoria": "perfileria_aluminio",
+      "formula": "perimetro * alto / perimetro",
+      "unidad": "ml",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "perfil esquinero aluminio anodizado para proteccion de aristas; equivale a alto ml por esquina"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "paredes-pintura-v1",
+  "nombre": "Pintura Interior de Paredes",
+  "version": 1,
+  "tipo_trabajo": "paredes",
+  "items": [
+    {
+      "producto_categoria": "pintura_interior",
+      "formula": "area / 12",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1 galon cubre ~12m2 con 2 manos; economica=latex, media=vinil acrilica, premium=pintura lavable importada"
+    },
+    {
+      "producto_categoria": "sellador_pared",
+      "formula": "area / 20",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "1 galon sellador/fijador cubre ~20m2 en 1 mano sobre superficie porosa"
+    },
+    {
+      "producto_categoria": "masilla_pared",
+      "formula": "area / 30",
+      "unidad": "bolsa",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "bolsa 20kg masilla plastica cubre ~30m2; aplica solo en gamas media y premium para acabado liso"
+    },
+    {
+      "producto_categoria": "rodillo_pintura",
+      "formula": "1",
+      "unidad": "juego",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "juego incluye rodillo 23cm + bandeja + brocha de corte; 1 juego por trabajo"
+    }
+  ]
+}

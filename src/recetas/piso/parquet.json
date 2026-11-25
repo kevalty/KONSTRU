@@ -1,0 +1,40 @@
+{
+  "id": "piso-parquet-v1",
+  "nombre": "Piso de Parquet",
+  "version": 1,
+  "tipo_trabajo": "piso",
+  "items": [
+    {
+      "producto_categoria": "parquet_madera",
+      "formula": "area * 1.08",
+      "unidad": "m2",
+      "desperdicio": 0.08,
+      "gama": ["media", "premium"],
+      "notas": "8% desperdicio por cortes diagonales y ajustes; media=eucalipto/pino, premium=teca/chanul"
+    },
+    {
+      "producto_categoria": "adhesivo_parquet",
+      "formula": "area / 8",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "1 galon adhesivo de contacto rinde ~8m2 aplicado con espatula dentada"
+    },
+    {
+      "producto_categoria": "barniz_piso",
+      "formula": "area / 25",
+      "unidad": "galon",
+      "desperdicio": 0.05,
+      "gama": ["media", "premium"],
+      "notas": "1 galon cubre ~25m2 por mano; incluye 2 manos base + 1 acabado"
+    },
+    {
+      "producto_categoria": "lija_madera",
+      "formula": "area / 10",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["media", "premium"],
+      "notas": "1 hoja lija por cada 10m2; granos 60, 80 y 120 para lijado progresivo"
+    }
+  ]
+}

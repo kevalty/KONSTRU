@@ -1,0 +1,96 @@
+{
+  "id": "bano-completo-v1",
+  "nombre": "Bano Completo",
+  "version": 1,
+  "tipo_trabajo": "bano",
+  "items": [
+    {
+      "producto_categoria": "ceramica_piso_bano",
+      "formula": "area * 1.15",
+      "unidad": "m2",
+      "desperdicio": 0.15,
+      "gama": ["economica", "media", "premium"],
+      "notas": "15% desperdicio por cortes alrededor de inodoro, ducha y muebles; antideslizante obligatorio"
+    },
+    {
+      "producto_categoria": "ceramica_pared_bano",
+      "formula": "perimetro * alto * 1.12",
+      "unidad": "m2",
+      "desperdicio": 0.12,
+      "gama": ["economica", "media", "premium"],
+      "notas": "revestimiento total de paredes hasta techo; 12% desperdicio por nichos y vanos"
+    },
+    {
+      "producto_categoria": "pegante_ceramica",
+      "formula": "(area + perimetro * alto) / 4",
+      "unidad": "bolsa",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "bolsa 20kg rinde ~4m2 promedio piso+pared; usar pegante resistente al agua en bano"
+    },
+    {
+      "producto_categoria": "fragua_bano",
+      "formula": "(area + perimetro * alto) / 12",
+      "unidad": "kg",
+      "desperdicio": 0.05,
+      "gama": ["economica", "media", "premium"],
+      "notas": "fragua epoxica recomendada en banos; 1kg cubre ~12m2 con junta 2-3mm"
+    },
+    {
+      "producto_categoria": "impermeabilizante_bano",
+      "formula": "area * 1.1",
+      "unidad": "galon",
+      "desperdicio": 0.1,
+      "gama": ["economica", "media", "premium"],
+      "notas": "impermeabilizacion critica del piso antes de ceramica; subir 20cm en paredes perimetrales"
+    },
+    {
+      "producto_categoria": "inodoro",
+      "formula": "1",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "economica=porcelana basica, media=porcelana con fluxometro, premium=rimless con soft-close"
+    },
+    {
+      "producto_categoria": "lavabo",
+      "formula": "1",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "economica=porcelana empotrar, media=semipedestal, premium=sobre encimera"
+    },
+    {
+      "producto_categoria": "griferia_lavabo",
+      "formula": "1",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "economica=monocomando basico, media=monocomando con aireador, premium=termostato o griferia de diseno"
+    },
+    {
+      "producto_categoria": "ducha_set",
+      "formula": "1",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["economica", "media"],
+      "notas": "set ducha con cabezal, mezcladora y barra; aplica gamas economica y media"
+    },
+    {
+      "producto_categoria": "cabina_ducha",
+      "formula": "1",
+      "unidad": "unidad",
+      "desperdicio": 0,
+      "gama": ["premium"],
+      "notas": "cabina de vidrio templado 8mm con perfileria aluminio; solo gama premium"
+    },
+    {
+      "producto_categoria": "accesorios_bano",
+      "formula": "1",
+      "unidad": "juego",
+      "desperdicio": 0,
+      "gama": ["economica", "media", "premium"],
+      "notas": "juego incluye toallero, porta-papel, gancho, espejo; economica=acero cromado, premium=acero inoxidable o latón"
+    }
+  ]
+}
