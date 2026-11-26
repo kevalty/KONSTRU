@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ChatFlotante } from '@/components/chat/ChatFlotante'
 
 const PASOS = [
   { titulo: 'Habla con STEVE', desc: 'Cuéntale qué quieres construir o remodelar. Él te guía paso a paso con preguntas simples.' },
@@ -30,7 +31,7 @@ export default function PaginaInicio() {
             <a href="#tipos" className="hover:text-white transition-colors">Qué puedes cotizar</a>
           </nav>
           <Link
-            href="/chat"
+            href="/#chat"
             className="bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
           >
             Cotizar ahora
@@ -57,7 +58,7 @@ export default function PaginaInicio() {
 
         <div className="flex flex-col sm:flex-row gap-3 mb-16">
           <Link
-            href="/chat"
+            href="/#chat"
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-8 py-3.5 rounded-xl text-base transition-colors"
           >
             Cotizar con STEVE
@@ -152,7 +153,7 @@ export default function PaginaInicio() {
           </div>
           <div className="mt-10 text-center">
             <Link
-              href="/chat"
+              href="/#chat"
               className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium px-8 py-3.5 rounded-xl text-sm transition-colors"
             >
               Empezar con STEVE →
@@ -171,12 +172,13 @@ export default function PaginaInicio() {
             Estimaciones de materiales. No incluye mano de obra ni instalación.
           </p>
           <div className="flex gap-5 text-xs text-[#475569]">
-            <Link href="/chat" className="hover:text-white transition-colors">Chat</Link>
+            <Link href="/#chat" className="hover:text-white transition-colors">Chat</Link>
             <Link href="/login" className="hover:text-white transition-colors">Admin</Link>
           </div>
         </div>
       </footer>
 
+      <ChatFlotante />
     </div>
   )
 }
