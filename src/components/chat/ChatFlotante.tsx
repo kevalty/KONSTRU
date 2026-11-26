@@ -48,7 +48,7 @@ export function ChatFlotante() {
 
       {abierto && (
         <div
-          className="fixed z-50 flex flex-col bg-white
+          className="fixed z-50 flex flex-col bg-white overflow-hidden
             inset-0
             md:inset-auto md:bottom-6 md:right-6 md:w-[380px] md:h-[600px] md:rounded-2xl md:shadow-2xl md:border md:border-[#E2E8F0]"
           style={{ overscrollBehavior: 'contain' }}

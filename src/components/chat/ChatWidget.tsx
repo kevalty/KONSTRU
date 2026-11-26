@@ -65,8 +65,8 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="flex-1 flex flex-col max-w-lg mx-auto w-full">
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+    <div className="flex-1 flex flex-col max-w-lg mx-auto w-full min-h-0">
+      <div className="flex-1 overflow-y-auto min-h-0 px-4 py-4 space-y-3">
         {mensajes.map(m => (
           <div key={m.id} className={`flex ${m.rol === 'usuario' ? 'justify-end' : 'justify-start'}`}>
             <div className={m.rol === 'usuario' ? 'burbuja-usuario' : 'burbuja-asistente'}>
