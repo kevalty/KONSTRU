@@ -168,7 +168,7 @@ APP_URL=
 Documentar en esta sección los comandos reales (`dev`, `test`, `lint`, `db`) al crearlos.
 
 ## 12. Decisiones pendientes
-- [ ] Nombre del producto
+- [x] Nombre del producto → **KONSTRU** (plataforma) + **STEVE** (chatbot)
 - [ ] Modelo de ingresos (en pausa)
 - [ ] Cómo se cobra al cliente, cómo se paga a la ferretería y quién entrega
 - [ ] ¿El cliente recibe las 3 cotizaciones antes de que el asesor las revise? **Supuesto actual: sí, marcadas como preliminares**
@@ -189,18 +189,25 @@ npx tsc --noEmit     # type check
 ```
 
 ## 13. Estado actual
-- Fase: **1 · código completo, listo para conectar Supabase y desplegar**
+- Fase: **2 · desplegado en Vercel, operativo con STEVE y panel admin**
 - Última actualización: 2026-11-25
-- **Hecho en esta sesión:**
+- **Hecho:**
   - Scaffolding Next.js 16 + TypeScript strict + Tailwind v4
-  - 6 archivos de documentación (`docs/01-flujos.md` … `docs/06-plan.md`)
-  - Migración SQL completa con todas las tablas + RLS (`supabase/migrations/001_initial_schema.sql`)
-  - Domain layer puro: compartido, calculo, clima, cotizacion, pedidos (sin dependencias externas)
-  - 8 recetas de materiales JSON (piso, paredes, baño, techo, fachada, impermeabilización)
-  - Server layer: repositorios, servicios, chatbot (Claude API), WhatsApp (modo simulado)
-  - UI completa: home, chat, cotización `/c/[token]`, orden ferretería `/o/[token]`, panel asesores
-  - API routes: `/api/chat`, `/api/ordenes/*`, `/api/webhooks/whatsapp`
-  - Seed DEMO con 3 proveedores y ~50 productos reales ecuatorianos
-  - 44 tests Vitest (dominio) verdes · lint limpio · TypeScript sin errores
-- **Siguiente paso:** Conectar Supabase real (llenar `.env.local`), ejecutar migración y seed, probar el flujo completo en `npm run dev`
-- **Bloqueos:** Ninguno técnico. Decisiones pendientes del CLAUDE.md § 12 siguen abiertas (nombre, ciudad piloto, IVA con/sin).
+  - Migración SQL + seed (47 productos DEMO) ejecutados en Supabase real
+  - Chatbot STEVE operativo vía OpenRouter (`nvidia/nemotron-3.5-lightning:free`)
+  - Landing page KONSTRU: hero, pasos, features, CTA, responsive
+  - Login admin con Supabase Auth (`/login`) + middleware protege `/panel`
+  - Dashboard admin con KPIs, solicitudes recientes y navegación completa
+  - WhatsApp en modo `simulado`; plantillas en revisión en Meta (#133010 capturado)
+  - Deploy en Vercel: `konstru.vercel.app`
+  - GitHub: `github.com/kevalty/KONSTRU`
+- **Pendiente para WhatsApp real:**
+  - Aprobar plantillas en Meta (en revisión)
+  - Agregar números de prueba en Meta Business → API Setup
+  - Cambiar `WHATSAPP_MODE=real` en Vercel cuando esté listo
+  - Actualizar `enviar.ts` para usar formato de plantilla aprobada
+- **Pendiente de contenido:**
+  - Logo KONSTRU real (reemplazar texto por imagen)
+  - Imagen/dibujo 2D de STEVE (reemplazar 🤖 en landing y chat)
+  - Crear usuario admin en Supabase Auth (Authentication → Users → Invite)
+- **Bloqueos:** Ninguno técnico. WhatsApp en progreso.
