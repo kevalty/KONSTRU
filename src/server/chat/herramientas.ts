@@ -70,6 +70,10 @@ export const HERRAMIENTAS: OpenAI.ChatCompletionTool[] = [
             type: 'string',
             description: 'Resumen de lo que va a cotizar, tal como se lo explico al cliente',
           },
+          numero_telefono: {
+            type: 'string',
+            description: 'Numero de WhatsApp del cliente para enviarle las cotizaciones (ej: 0991234567)',
+          },
         },
         required: ['resumen'],
       },

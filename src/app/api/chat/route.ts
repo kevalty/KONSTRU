@@ -45,7 +45,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const { tipoTrabajo, medidas, ubicacion } = respuesta.estadoActualizado
 
       // Create solicitud in DB
-      const telefono = body.numerTelefono ?? 'desconocido'
+      const telefono = respuesta.estadoActualizado.telefonoContacto ?? body.numerTelefono ?? 'desconocido'
       const hash = hashToken(telefono)
       const solicitud = await crearSolicitud({
         numero_telefono_hash: hash,

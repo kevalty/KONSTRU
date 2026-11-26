@@ -15,6 +15,7 @@ export interface EstadoConversacion {
   medidas: Medidas
   ubicacion?: Ubicacion
   confirmado: boolean
+  telefonoContacto?: string
 }
 
 export interface RespuestaChat {
@@ -115,6 +116,7 @@ export async function procesarMensaje(
             case 'confirmar_solicitud':
               estadoActualizado.confirmado = true
               solicitudConfirmada = true
+              if (input.numero_telefono) estadoActualizado.telefonoContacto = input.numero_telefono as string
               break
           }
         } catch (err) {
