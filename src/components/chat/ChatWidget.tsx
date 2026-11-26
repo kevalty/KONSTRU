@@ -11,7 +11,7 @@ interface Mensaje {
 const BIENVENIDA: Mensaje = {
   id: '0',
   rol: 'asistente',
-  contenido: '¡Hola! Soy Coti, tu asistente para cotizaciones de materiales. ¿En qué te puedo ayudar hoy? Por ejemplo: "Quiero poner piso en mi sala"',
+  contenido: '¡Hola! Soy STEVE, tu asistente de cotizaciones de materiales de KONSTRU. ¿Qué vas a construir o remodelar? Ejemplo: "Quiero poner piso en mi sala"',
 }
 
 export function ChatWidget() {
