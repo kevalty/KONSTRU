@@ -27,60 +27,87 @@ export default function PaginaLogin() {
       return
     }
 
-    router.push('/panel/solicitudes')
+    router.push('/panel')
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
-      <div className="w-full max-w-sm">
-        <div className="text-center mb-8">
-          <span className="text-2xl font-black text-white">
-            KON<span className="text-emerald-400">STRU</span>
-          </span>
-          <p className="text-slate-400 text-sm mt-2">Panel de administración</p>
+    <div className="min-h-screen flex">
+      {/* Left: dark brand panel */}
+      <div className="hidden lg:flex lg:w-[45%] bg-[#0F1117] flex-col justify-between p-12 border-r border-[#1E293B]">
+        <span className="font-black text-xl tracking-tight text-white">
+          KON<span className="text-emerald-500">STRU</span>
+        </span>
+        <div>
+          <p className="text-[#334155] text-sm leading-relaxed max-w-xs">
+            Plataforma de cotización y gestión de materiales de construcción para Ecuador.
+          </p>
         </div>
+        <p className="text-[#1E293B] text-xs select-none">© 2025 KONSTRU · Acceso restringido</p>
+      </div>
 
-        <form
-          onSubmit={manejarEnvio}
-          className="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col gap-4"
-        >
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email</label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm"
-              placeholder="admin@konstru.ec"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Contraseña</label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm"
-              placeholder="••••••••"
-            />
+      {/* Right: form */}
+      <div className="flex-1 flex items-center justify-center bg-white px-6 py-12">
+        <div className="w-full max-w-sm">
+          {/* Mobile logo */}
+          <div className="mb-8 lg:hidden">
+            <span className="font-black text-xl tracking-tight text-[#0F172A]">
+              KON<span className="text-emerald-500">STRU</span>
+            </span>
           </div>
 
-          {error && (
-            <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">
-              {error}
-            </p>
-          )}
+          <div className="mb-8">
+            <h1 className="text-[22px] font-semibold text-[#0F172A] tracking-tight">Bienvenido</h1>
+            <p className="text-sm text-[#64748B] mt-1">Ingresa tus credenciales para continuar</p>
+          </div>
 
-          <button
-            type="submit"
-            disabled={cargando}
-            className="bg-emerald-500 hover:bg-emerald-400 disabled:bg-slate-600 text-white font-bold py-3 rounded-lg transition-colors mt-1"
-          >
-            {cargando ? 'Entrando...' : 'Entrar al panel'}
-          </button>
-        </form>
+          <form onSubmit={manejarEnvio} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-[#374151] mb-1.5">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="nombre@empresa.com"
+                className="w-full h-11 bg-white border border-[#E2E8F0] rounded-lg px-3.5 text-sm text-[#0F172A] placeholder-[#CBD5E1] focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-[#374151] mb-1.5">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full h-11 bg-white border border-[#E2E8F0] rounded-lg px-3.5 text-sm text-[#0F172A] placeholder-[#CBD5E1] focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+              />
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3.5 py-2.5">
+                {error}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={cargando}
+              className="w-full h-11 bg-emerald-500 hover:bg-emerald-600 disabled:bg-[#E2E8F0] disabled:text-[#94A3B8] disabled:cursor-not-allowed text-white font-medium text-sm rounded-lg transition-colors mt-1"
+            >
+              {cargando ? 'Verificando…' : 'Entrar al panel'}
+            </button>
+          </form>
+
+          <p className="text-xs text-[#CBD5E1] text-center mt-8">
+            Acceso restringido a personal autorizado
+          </p>
+        </div>
       </div>
     </div>
   )
