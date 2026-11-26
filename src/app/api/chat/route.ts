@@ -75,8 +75,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
 
       if (telefono !== 'desconocido') {
-        const wsMsg = mensajeCotizacionLista(telefono, cotizaciones, tokens)
-        await enviarMensaje(wsMsg)
+        try {
+          const wsMsg = mensajeCotizacionLista(telefono, cotizaciones, tokens)
+          await enviarMensaje(wsMsg)
+        } catch (wsErr) {
+          console.error('[/api/chat] WhatsApp no enviado:', wsErr)
+        }
       }
 
       return NextResponse.json({
