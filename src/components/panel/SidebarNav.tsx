@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -71,15 +72,15 @@ function IconSettings() {
   )
 }
 
-const NAV_ITEMS = [
-  { href: '/panel',                  label: 'Dashboard',    icon: <IconDashboard />, exact: true },
-  { href: '/panel/solicitudes',      label: 'Solicitudes',  icon: <IconList /> },
-  { href: '/panel/pedidos',          label: 'Pedidos',      icon: <IconBox /> },
-  { href: '/panel/catalogo',         label: 'Catálogo',     icon: <IconTag /> },
-  { href: '/panel/proveedores',      label: 'Proveedores',  icon: <IconStore /> },
-  { href: '/panel/recetas',          label: 'Recetas',      icon: <IconFlask /> },
-  { href: '/panel/configuracion',    label: 'Configuración',icon: <IconSettings /> },
-] as const
+const NAV_ITEMS: { href: string; label: string; icon: React.ReactNode; exact?: boolean }[] = [
+  { href: '/panel',               label: 'Dashboard',    icon: <IconDashboard />, exact: true },
+  { href: '/panel/solicitudes',   label: 'Solicitudes',  icon: <IconList /> },
+  { href: '/panel/pedidos',       label: 'Pedidos',      icon: <IconBox /> },
+  { href: '/panel/catalogo',      label: 'Catálogo',     icon: <IconTag /> },
+  { href: '/panel/proveedores',   label: 'Proveedores',  icon: <IconStore /> },
+  { href: '/panel/recetas',       label: 'Recetas',      icon: <IconFlask /> },
+  { href: '/panel/configuracion', label: 'Configuración',icon: <IconSettings /> },
+]
 
 export function SidebarNav() {
   const pathname = usePathname()

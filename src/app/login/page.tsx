@@ -33,16 +33,16 @@ export default function PaginaLogin() {
   return (
     <div className="min-h-screen flex">
       {/* Left: dark brand panel */}
-      <div className="hidden lg:flex lg:w-[45%] bg-[#0F1117] flex-col justify-between p-12 border-r border-[#1E293B]">
+      <div className="hidden md:flex md:w-[45%] bg-[#0F1117] flex-col justify-between p-12 border-r border-[#1E293B]">
         <span className="font-black text-xl tracking-tight text-white">
           KON<span className="text-emerald-500">STRU</span>
         </span>
         <div>
-          <p className="text-[#334155] text-sm leading-relaxed max-w-xs">
+          <p className="text-[#94A3B8] text-sm leading-relaxed max-w-xs">
             Plataforma de cotización y gestión de materiales de construcción para Ecuador.
           </p>
         </div>
-        <p className="text-[#1E293B] text-xs select-none">© 2025 KONSTRU · Acceso restringido</p>
+        <p className="text-[#475569] text-xs select-none">© 2025 KONSTRU · Acceso restringido</p>
       </div>
 
       {/* Right: form */}

@@ -20,14 +20,14 @@ export default function PaginaInicio() {
     <div className="min-h-screen flex flex-col bg-white">
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-[#E2E8F0]">
+      <header className="sticky top-0 z-50 bg-[#0A0F1A]/95 backdrop-blur-sm border-b border-[#1E293B]">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-          <span className="font-black text-lg tracking-tight text-[#0F172A]">
+          <span className="font-black text-lg tracking-tight text-white">
             KON<span className="text-emerald-500">STRU</span>
           </span>
           <nav className="hidden md:flex items-center gap-6 text-sm text-[#64748B]">
-            <a href="#como-funciona" className="hover:text-[#0F172A] transition-colors">Cómo funciona</a>
-            <a href="#tipos" className="hover:text-[#0F172A] transition-colors">Qué puedes cotizar</a>
+            <a href="#como-funciona" className="hover:text-white transition-colors">Cómo funciona</a>
+            <a href="#tipos" className="hover:text-white transition-colors">Qué puedes cotizar</a>
           </nav>
           <Link
             href="/chat"
@@ -39,19 +39,19 @@ export default function PaginaInicio() {
       </header>
 
       {/* Hero */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16 bg-white">
-        <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-1.5 mb-8">
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16 bg-[#0A0F1A]">
+        <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1.5 mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-          <span className="text-emerald-700 text-xs font-medium">Ecuador · Costa, Sierra y Oriente</span>
+          <span className="text-emerald-400 text-xs font-medium">Ecuador · Costa, Sierra y Oriente</span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-semibold text-[#0F172A] leading-tight tracking-tight mb-6 max-w-3xl">
+        <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight tracking-tight mb-6 max-w-3xl">
           Cotiza materiales de{' '}
-          <span className="text-emerald-500">construcción</span>{' '}
+          <span className="text-emerald-400">construcción</span>{' '}
           en minutos
         </h1>
 
-        <p className="text-[#64748B] text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
+        <p className="text-[#94A3B8] text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
           Habla con STEVE, nuestro asistente, y recibe 3 cotizaciones personalizadas con materiales reales de ferreterías.
         </p>
 
@@ -64,14 +64,14 @@ export default function PaginaInicio() {
           </Link>
           <a
             href="#como-funciona"
-            className="border border-[#E2E8F0] hover:border-[#CBD5E1] text-[#64748B] hover:text-[#0F172A] font-medium px-8 py-3.5 rounded-xl text-base transition-colors"
+            className="border border-[#334155] hover:border-[#475569] text-[#94A3B8] hover:text-white font-medium px-8 py-3.5 rounded-xl text-base transition-colors"
           >
             Ver cómo funciona
           </a>
         </div>
 
         {/* Chat preview */}
-        <div className="w-full max-w-sm bg-white border border-[#E2E8F0] rounded-2xl p-5 text-left shadow-sm">
+        <div className="w-full max-w-sm bg-white border border-[#E2E8F0] rounded-2xl p-5 text-left shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
           <div className="flex items-center gap-2.5 mb-4">
             <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-sm">🤖</div>
             <span className="font-semibold text-sm text-[#0F172A]">STEVE</span>
