@@ -19,7 +19,7 @@ export default async function PaginaConfiguracion() {
   const configs = await obtenerConfiguracion()
 
   return (
-    <div>
+    <div className="p-6 md:p-8">
       <h1 className="text-xl font-bold text-slate-800 mb-4">Configuración</h1>
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
         <table className="w-full text-sm">

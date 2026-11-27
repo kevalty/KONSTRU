@@ -30,12 +30,12 @@ export default function PaginaInicio() {
             <a href="#como-funciona" className="hover:text-white transition-colors">Cómo funciona</a>
             <a href="#tipos" className="hover:text-white transition-colors">Qué puedes cotizar</a>
           </nav>
-          <Link
-            href="/#chat"
+          <a
+            href="#chat"
             className="bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
           >
             Cotizar ahora
-          </Link>
+          </a>
         </div>
       </header>
 
@@ -57,12 +57,12 @@ export default function PaginaInicio() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 mb-16">
-          <Link
-            href="/#chat"
+          <a
+            href="#chat"
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-8 py-3.5 rounded-xl text-base transition-colors"
           >
             Cotizar con STEVE
-          </Link>
+          </a>
           <a
             href="#como-funciona"
             className="border border-[#334155] hover:border-[#475569] text-[#94A3B8] hover:text-white font-medium px-8 py-3.5 rounded-xl text-base transition-colors"
@@ -141,23 +141,23 @@ export default function PaginaInicio() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {TIPOS.map(t => (
-              <Link
+              <a
                 key={t.nombre}
-                href="/chat"
+                href="#chat"
                 className="bg-white border border-[#E2E8F0] hover:border-emerald-200 hover:bg-emerald-50/50 rounded-xl px-5 py-4 flex items-center gap-3 transition-colors"
               >
                 <span className="text-2xl">{t.emoji}</span>
                 <span className="font-medium text-[#0F172A] text-sm">{t.nombre}</span>
-              </Link>
+              </a>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link
-              href="/#chat"
+            <a
+              href="#chat"
               className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium px-8 py-3.5 rounded-xl text-sm transition-colors"
             >
               Empezar con STEVE →
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -172,7 +172,7 @@ export default function PaginaInicio() {
             Estimaciones de materiales. No incluye mano de obra ni instalación.
           </p>
           <div className="flex gap-5 text-xs text-[#475569]">
-            <Link href="/#chat" className="hover:text-white transition-colors">Chat</Link>
+            <a href="#chat" className="hover:text-white transition-colors">Chat</a>
             <Link href="/login" className="hover:text-white transition-colors">Admin</Link>
           </div>
         </div>

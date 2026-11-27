@@ -3,9 +3,9 @@
 
 -- ─── Proveedores DEMO ─────────────────────────────────────────────────────
 insert into proveedores (id, nombre, telefono, email, ciudad) values
-  ('11111111-1111-1111-1111-111111111111', 'Ferretería El Tornillo DEMO', '+593987654321', 'eltornillo@demo.ec', 'Guayaquil'),
-  ('22222222-2222-2222-2222-222222222222', 'Distribuidora Los Andes DEMO', '+593912345678', 'losandes@demo.ec', 'Quito'),
-  ('33333333-3333-3333-3333-333333333333', 'Materiales del Oriente DEMO', '+593956781234', 'oriente@demo.ec', 'Puyo');
+  ('11111111-1111-1111-1111-111111111111', 'Ferretería El Tornillo DEMO', '+593995220931', 'eltornillo@demo.ec', 'Guayaquil'),
+  ('22222222-2222-2222-2222-222222222222', 'Distribuidora Los Andes DEMO', '+593995220931', 'losandes@demo.ec', 'Quito'),
+  ('33333333-3333-3333-3333-333333333333', 'Materiales del Oriente DEMO', '+593995220931', 'oriente@demo.ec', 'Puyo');
 
 -- ─── Productos DEMO ──────────────────────────────────────────────────────
 -- ceramica_piso

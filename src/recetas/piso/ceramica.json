@@ -1,16 +1,16 @@
 {
   "id": "piso-ceramica-v1",
-  "nombre": "Piso de Cerámica",
+  "nombre": "Piso de Ceramica",
   "version": 1,
   "tipo_trabajo": "piso",
   "items": [
     {
       "producto_categoria": "ceramica_piso",
-      "formula": "area * 1.1",
+      "formula": "area",
       "unidad": "m2",
       "desperdicio": 0.1,
       "gama": ["economica", "media", "premium"],
-      "notas": "economica=ceramica basica 30x30, media=porcelanato 60x60, premium=porcelanato gran formato 90x90 o mas"
+      "notas": "10% desperdicio por cortes; economica=ceramica basica 30x30, media=porcelanato 60x60, premium=porcelanato gran formato 90x90 o mas"
     },
     {
       "producto_categoria": "pegante_ceramica",

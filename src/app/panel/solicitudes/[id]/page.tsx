@@ -32,6 +32,14 @@ export default async function PaginaDetalleSolicitud({ params }: { params: Promi
   const ubicacion = solicitud.ubicacion as Record<string, string>
   const cfg = ESTADO_CONFIG[solicitud.estado as keyof typeof ESTADO_CONFIG] ?? ESTADO_CONFIG.cancelada
 
+  const NOMBRES_TRABAJO: Record<string, string> = {
+    piso: 'Piso', paredes: 'Paredes', paredes_ceramica: 'Pared (cerámica)',
+    paredes_pintura: 'Pared (pintura)', bano: 'Baño', techo: 'Techo',
+    fachada: 'Fachada', impermeabilizacion: 'Impermeabilización',
+  }
+  const UNIDADES_MEDIDA: Record<string, string> = { area: 'm²', volumen: 'm³' }
+  const unidadDe = (k: string) => UNIDADES_MEDIDA[k] ?? 'm'
+
   return (
     <div className="p-6 md:p-8 max-w-[800px]">
       {/* Back link + header */}
@@ -40,8 +48,8 @@ export default async function PaginaDetalleSolicitud({ params }: { params: Promi
           ← Solicitudes
         </Link>
         <div className="flex items-start justify-between gap-4 mt-1">
-          <h1 className="text-[22px] font-semibold text-[#0F172A] capitalize tracking-tight">
-            {solicitud.trabajo_tipo}
+          <h1 className="text-[22px] font-semibold text-[#0F172A] tracking-tight">
+            {NOMBRES_TRABAJO[solicitud.trabajo_tipo] ?? solicitud.trabajo_tipo}
           </h1>
           <span className={`text-xs px-2.5 py-1 rounded-full font-medium border flex-shrink-0 mt-1 ${cfg.clase}`}>
             {cfg.label}
@@ -54,6 +62,12 @@ export default async function PaginaDetalleSolicitud({ params }: { params: Promi
       <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 mb-6">
         <p className="text-xs font-medium text-[#94A3B8] mb-4">Detalles</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
+          {ubicacion.ciudad && (
+            <div>
+              <p className="text-xs text-[#94A3B8] mb-0.5">Ciudad</p>
+              <p className="text-sm font-medium text-[#0F172A]">{ubicacion.ciudad}</p>
+            </div>
+          )}
           {ubicacion.provincia && (
             <div>
               <p className="text-xs text-[#94A3B8] mb-0.5">Provincia</p>
@@ -69,7 +83,7 @@ export default async function PaginaDetalleSolicitud({ params }: { params: Promi
           {Object.entries(medidas).filter(([k]) => k !== 'notas').map(([k, v]) => (
             <div key={k}>
               <p className="text-xs text-[#94A3B8] mb-0.5 capitalize">{k}</p>
-              <p className="text-sm font-medium text-[#0F172A]">{v}m</p>
+              <p className="text-sm font-medium text-[#0F172A]">{v} {unidadDe(k)}</p>
             </div>
           ))}
         </div>

@@ -10,7 +10,7 @@ import type { ResumenCotizacion } from '@/domain/cotizacion/tipos'
 
 interface Cuerpo {
   solicitudId: string
-  tipo: 'confirmar' | 'cancelar' | 'crear-pedido'
+  tipo: 'confirmar' | 'cancelar' | 'crear-pedido' | 'en-revision'
   gamaSeleccionada?: Gama
   proveedorId?: string
 }
@@ -31,6 +31,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
       case 'cancelar':
         await actualizarEstadoSolicitud(solicitudId, 'cancelada')
+        return NextResponse.json({ ok: true })
+
+      case 'en-revision':
+        await actualizarEstadoSolicitud(solicitudId, 'en_revision')
         return NextResponse.json({ ok: true })
 
       case 'crear-pedido': {

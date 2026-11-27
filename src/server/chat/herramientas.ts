@@ -12,8 +12,8 @@ export const HERRAMIENTAS: OpenAI.ChatCompletionTool[] = [
         properties: {
           tipo: {
             type: 'string',
-            enum: ['piso', 'paredes', 'bano', 'techo', 'fachada', 'impermeabilizacion'],
-            description: 'Tipo de trabajo',
+            enum: ['piso', 'paredes_ceramica', 'paredes_pintura', 'bano', 'techo', 'fachada', 'impermeabilizacion'],
+            description: 'Tipo de trabajo. Usa paredes_ceramica cuando el cliente quiere poner ceramica o porcelanato en paredes; usa paredes_pintura cuando quiere pintar paredes.',
           },
           descripcion: {
             type: 'string',

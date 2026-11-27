@@ -6,7 +6,7 @@ export default async function PaginaProveedores() {
   const proveedores = await listarProveedores()
 
   return (
-    <div>
+    <div className="p-6 md:p-8">
       <h1 className="text-xl font-bold text-slate-800 mb-4">Proveedores</h1>
       {proveedores.length === 0 && (
         <div className="bg-white rounded-xl border border-slate-200 p-8 text-center text-slate-400">

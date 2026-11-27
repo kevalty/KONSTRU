@@ -14,6 +14,22 @@ const BIENVENIDA: Mensaje = {
   contenido: '¡Hola! Soy STEVE, tu asistente de cotizaciones de materiales de KONSTRU. ¿Qué vas a construir o remodelar? Ejemplo: "Quiero poner piso en mi sala"',
 }
 
+function renderMd(texto: string) {
+  return texto.split('\n').map((line, i) => {
+    const parts = line.split(/(\*\*[^*]+\*\*)/)
+    return (
+      <span key={i}>
+        {i > 0 && <br />}
+        {parts.map((p, j) =>
+          p.startsWith('**') && p.endsWith('**')
+            ? <strong key={j}>{p.slice(2, -2)}</strong>
+            : p
+        )}
+      </span>
+    )
+  })
+}
+
 export function ChatWidget() {
   const [mensajes, setMensajes] = useState<Mensaje[]>([BIENVENIDA])
   const [cargando, setCargando] = useState(false)
@@ -70,7 +86,7 @@ export function ChatWidget() {
         {mensajes.map(m => (
           <div key={m.id} className={`flex ${m.rol === 'usuario' ? 'justify-end' : 'justify-start'}`}>
             <div className={m.rol === 'usuario' ? 'burbuja-usuario' : 'burbuja-asistente'}>
-              {m.contenido}
+              {renderMd(m.contenido)}
             </div>
           </div>
         ))}

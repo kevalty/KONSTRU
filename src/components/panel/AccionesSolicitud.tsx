@@ -18,7 +18,7 @@ export function AccionesSolicitud({ solicitudId, estadoActual, proveedores, coti
   const [proveedorId, setProveedorId] = useState(proveedores[0]?.id ?? '')
   const [error, setError] = useState('')
 
-  async function accion(tipo: 'confirmar' | 'cancelar' | 'crear-pedido') {
+  async function accion(tipo: 'confirmar' | 'cancelar' | 'crear-pedido' | 'en-revision') {
     setCargando(true)
     setError('')
     try {
@@ -39,10 +39,10 @@ export function AccionesSolicitud({ solicitudId, estadoActual, proveedores, coti
     }
   }
 
-  if (estadoActual === 'cancelada' || estadoActual === 'confirmada') {
+  if (estadoActual === 'cancelada') {
     return (
-      <div className={`rounded-xl p-4 text-sm font-medium ${estadoActual === 'confirmada' ? 'bg-green-50 text-green-700' : 'bg-slate-100 text-slate-500'}`}>
-        Solicitud {estadoActual}
+      <div className="rounded-xl p-4 text-sm font-medium bg-slate-100 text-slate-500">
+        Solicitud cancelada
       </div>
     )
   }
@@ -76,14 +76,25 @@ export function AccionesSolicitud({ solicitudId, estadoActual, proveedores, coti
         </div>
       </div>
 
-      <div className="flex gap-2">
-        <button
-          onClick={() => accion('confirmar')}
-          disabled={cargando}
-          className="flex-1 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-200 text-white font-semibold py-3 rounded-xl min-h-[44px]"
-        >
-          Confirmar
-        </button>
+      <div className="flex gap-2 flex-wrap">
+        {estadoActual !== 'confirmada' && (
+          <button
+            onClick={() => accion('confirmar')}
+            disabled={cargando}
+            className="flex-1 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-200 text-white font-semibold py-3 rounded-xl min-h-[44px]"
+          >
+            Confirmar
+          </button>
+        )}
+        {estadoActual === 'nueva' && (
+          <button
+            onClick={() => accion('en-revision')}
+            disabled={cargando}
+            className="flex-1 bg-amber-400 hover:bg-amber-500 disabled:bg-slate-200 text-white font-semibold py-3 rounded-xl min-h-[44px]"
+          >
+            En revisión
+          </button>
+        )}
         <button
           onClick={() => accion('crear-pedido')}
           disabled={cargando || !proveedorId}

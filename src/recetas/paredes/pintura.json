@@ -2,7 +2,7 @@
   "id": "paredes-pintura-v1",
   "nombre": "Pintura Interior de Paredes",
   "version": 1,
-  "tipo_trabajo": "paredes",
+  "tipo_trabajo": "paredes_pintura",
   "items": [
     {
       "producto_categoria": "pintura_interior",

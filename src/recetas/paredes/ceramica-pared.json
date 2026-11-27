@@ -2,11 +2,11 @@
   "id": "paredes-ceramica-v1",
   "nombre": "Ceramica de Pared",
   "version": 1,
-  "tipo_trabajo": "paredes",
+  "tipo_trabajo": "paredes_ceramica",
   "items": [
     {
       "producto_categoria": "ceramica_pared",
-      "formula": "area * 1.12",
+      "formula": "area",
       "unidad": "m2",
       "desperdicio": 0.12,
       "gama": ["economica", "media", "premium"],
@@ -30,11 +30,11 @@
     },
     {
       "producto_categoria": "perfileria_aluminio",
-      "formula": "perimetro * alto / perimetro",
+      "formula": "alto * 4",
       "unidad": "ml",
       "desperdicio": 0.05,
       "gama": ["media", "premium"],
-      "notas": "perfil esquinero aluminio anodizado para proteccion de aristas; equivale a alto ml por esquina"
+      "notas": "perfil esquinero aluminio anodizado; 4 esquinas tipicas x alto de pared"
     }
   ]
 }
