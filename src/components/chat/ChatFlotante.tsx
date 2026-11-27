@@ -34,6 +34,24 @@ export function ChatFlotante() {
     return () => window.removeEventListener('hashchange', abrirSiHash)
   }, [])
 
+  // iOS scroll lock: without this, the body scrolls behind the fixed overlay and
+  // drags it visually, making the chat appear white/distorted on mobile.
+  useEffect(() => {
+    if (!abierto) return
+    const scrollY = window.scrollY
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = '100%'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.width = ''
+      document.body.style.overflow = ''
+      window.scrollTo({ top: scrollY, behavior: 'instant' })
+    }
+  }, [abierto])
+
   return (
     <>
       {!abierto && (
@@ -48,9 +66,9 @@ export function ChatFlotante() {
 
       {abierto && (
         <div
-          className="fixed z-50 flex flex-col bg-white overflow-hidden
-            inset-0
-            md:inset-auto md:bottom-6 md:right-6 md:w-[380px] md:h-[600px] md:rounded-2xl md:shadow-2xl md:border md:border-[#E2E8F0]"
+          className="fixed z-50 flex flex-col bg-white
+            top-0 left-0 right-0 bottom-0 h-dvh
+            md:top-auto md:left-auto md:h-[600px] md:bottom-6 md:right-6 md:w-[380px] md:rounded-2xl md:shadow-2xl md:border md:border-[#E2E8F0] md:overflow-hidden"
           style={{ overscrollBehavior: 'contain' }}
         >
           <div className="flex items-center gap-3 px-4 py-3 border-b border-[#E2E8F0] flex-shrink-0 md:rounded-t-2xl">
